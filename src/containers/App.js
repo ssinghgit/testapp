@@ -16,11 +16,13 @@ const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
 
 class App extends Component {
   constructor(props) {
+    console.log(props)
     super(props);    
   }
 
   componentDidMount() {        
-    this.props.actions.loginRequest('foo','bar');
+    if ( this.props.auth.username == null  )
+    this.props.actions.loginRequest(this.props.authLoginPage.username,this.props.authLoginPage.password);
     //this.props.actions.requestCache();
     /*fetch(`${API}/films/`).then(res => res.json()).then(json => {    
       const { results: films } = json;        
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
   }
 });
 function mapStateToProps(state) {
-  let stateProp = state? state.toJS().search :{};
+  let stateProp = state? state.search :{};
   return {
     search:stateProp
   };
@@ -137,4 +139,4 @@ function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(AppActions, dispatch) }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(state=>state,mapDispatchToProps)(App);

@@ -22,9 +22,9 @@ if (typeof atob === 'undefined') {
   };
 }
 
-const initialState = fromJS(
-  {
-    search: { 
+const initialState = 
+  { scene:{}
+    ,search: { 
         loading:false,
         films:null,
         searchText:null,        
@@ -37,7 +37,7 @@ const initialState = fromJS(
     }
     
   }
-);
+;
 export  const store = createStore(AppReducer,initialState,applyMiddleware(sagaMiddleware))
 sagaMiddleware.run(rootSaga)
 //install())

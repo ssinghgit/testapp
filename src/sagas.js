@@ -2,6 +2,7 @@ import { takeEvery, delay} from 'redux-saga'
 import {call, put,fork,select } from 'redux-saga/effects'
 import {AuthApi } from './Api'
 import {getAuth} from './reducers'
+import {Actions} from  'react-native-router-flux';
 
 // Our worker Saga: will perform the async increment task
 export function* handleCache() {
@@ -27,13 +28,20 @@ export function* handleLogin() {
    const loginDetails = yield select(getAuth)
    
    const loginResult= yield call (AuthApi.whoami,loginDetails.base64Token)
-   console.log(loginResult)   
-   if ( loginResult.result) {
-     const keyChainSetResult=  yield call( AuthApi.setCredentials, loginDetails.username,loginDetails.password)
-     //console.log(keyChainSetResult)
-     yield put ({type:'LOGIN_SUCCESS'})
-   }
+   //console.log(JSON.parse(loginResult))      
    
+   if ( loginResult != null && loginResult.indexOf('Success') !=-1) {
+     const keyChainSetResult=  yield call( AuthApi.setCredentials, loginDetails.username,loginDetails.password)
+     console.log(keyChainSetResult)
+     //if ( keyChainSetResult =='Success' ) {
+        const cacheResult = yield call( AuthApi.getCache, 0,loginDetails.base64Token);
+        if ( cacheResult instanceof Array ) {
+          console.log( "data size is " + cacheResult.length)
+          yield put ({type:'LOGIN_SUCCESS',payload:{username:loginDetails.username ,password:loginDetails.password}})
+        }
+     //}   
+   }
+
      
    
    

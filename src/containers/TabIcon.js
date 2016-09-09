@@ -12,7 +12,7 @@ const propTypes = {
 };
 
 const TabIcon = (props) => { 
-  let colorPick = props.selected ? 'blue' : 'grey'
+  let colorPick = props.selected ? 'white' : 'grey'
   return (<Icon name={props.iconType} size={20} color={colorPick} />)
   }
 ;

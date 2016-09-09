@@ -11,6 +11,7 @@ import Login from './containers/Login'
 import NavigationDrawer from './containers/NavigationDrawer'
 import TabView from './containers/TabView'
 import TabIcon from './containers/TabIcon'
+
 import {
   Scene,
   Reducer,
@@ -18,49 +19,56 @@ import {
   Switch,
   Modal,
   Actions,
-  ActionConst,
+  ActionConst
 } from 'react-native-router-flux';
 
+const RouterWithRedux = connect()(Router);
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: 'transparent', justifyContent: 'center',
     alignItems: 'center',
   },
   tabBarStyle: {
-    backgroundColor: '#F7F7F7',
+    backgroundColor: '#003768',
   },
   tabBarSelectedItemStyle: {
-    backgroundColor: '#D1EEFC',
+    backgroundColor: '#003768',
   },
 });
  class AutocompleteExample extends Component {
   
 
+
   render() {
-    console.log(store.getState())
+    //console.log(store.getState())
+    //Actions.tab2_2
+                
    return(
      <Provider store={store}>
-       <Router>
-          <Scene key="root" hideNavBar hideTabBar>
-                
+       <RouterWithRedux>
+          <Scene key="root" hideNavBar hideTabBar  >
+            
+                  
+            <Scene key="login" direction="vertical" hideNavBar hideTabBar>
+              <Scene key="loginModal" initial hideNavBar component={Login} schema="modal" title="Login"/>
+            </Scene> 
+                            
             <Scene key="tabbar">
               <Scene
                 key="main"
                 tabs
-                initial
+               
                 tabBarStyle={styles.tabBarStyle}
                 tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
               >
                 <Scene
                   key="tab1"
-                
                   title="People"
                   iconType="users"
-                  icon={TabIcon}
-                  navigationBarStyle={{ backgroundColor: 'red' }}
+                  icon={TabIcon}                  
                   titleStyle={{ color: 'white' }}
                 >
                   <Scene
-                    key="tab1_1"
+                    key="peopleSearch"
                     component={App}
                     hideNavBar
                     title="Search By Name"
@@ -70,15 +78,15 @@ const styles = StyleSheet.create({
                   <Scene
                     key="ProfileView"
                     component={TabView}
-                    title="Profile"
-                    titleStyle={{ color: 'black' }}
+                    title="Profile"                    
                   />
                 </Scene>
                 <Scene key="tab2" iconType="search"  title="Search" icon={TabIcon}>
                   <Scene
                     key="tab2_1"
-                    component={TabView}                    
+                    component={Login}                    
                     title="Search"
+                    hideNavBar
                     renderRightButton={() => <Text>Right</Text>}
                   />
                   <Scene
@@ -92,17 +100,29 @@ const styles = StyleSheet.create({
                     panHandlers={null}
                   />
                 </Scene>
-                  <Scene key="tab3" iconType="calendar" component={TabView} title="Meeting"  icon={TabIcon} />
-                <Scene key="tab4" iconType="life-saver" component={TabView} title="Apps"  icon={TabIcon} />
-                <Scene key="tab5" iconType="cog"  component={TabView} title="Settings"  icon={TabIcon} />
+                  <Scene key="tab3" iconType="calendar"   navigationBarStyle={{ backgroundColor: '#003768' }}  
+                      titleStyle={{color:'white'}}
+                    component={TabView} title="Meeting"  icon={TabIcon}  navigationBarStyle={{ backgroundColor: '#003768' }}  
+                      titleStyle={{color:'white'}} />
+                <Scene key="tab4" iconType="life-saver" component={TabView} title="Apps"  icon={TabIcon}   navigationBarStyle={{ backgroundColor: '#003768' }}  
+                      titleStyle={{color:'white'}}/>
+                <Scene key="tab5" iconType="cog"  component={TabView} title="Settings"  icon={TabIcon}  navigationBarStyle={{ backgroundColor: '#003768' }}  
+                      titleStyle={{color:'white'}} />
               </Scene>
             </Scene>
          </Scene>
-       </Router>
+       </RouterWithRedux>
      
        </Provider>
    )
  }
+   
 }
-
+const reducerCreate = params=>{
+    const defaultReducer = Reducer(params);
+    return (state, action)=>{
+        console.log("ACTION:", action);
+        return defaultReducer(state, action);
+    }
+};
 export default AutocompleteExample;

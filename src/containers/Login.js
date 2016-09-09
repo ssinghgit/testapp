@@ -11,85 +11,156 @@ import {
   Image,
   ActivityIndicator
 } from 'react-native'
+import {Actions} from  'react-native-router-flux';
 import  Button from 'apsl-react-native-button'
+import t from 'tcomb-form-native';
+
 const API = 'http://swapi.co/api';
 const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
 
-class Login extends Component {
+export default class Login extends Component {
+  state={value: {
+        user: 'foo',
+        password: 'foobar',
+        showPassword:true
+      }};
   constructor(props) {
-    super(props);    
+    super(props);        
   }
 
   componentDidMount() {        
     //this.props.actions.loginRequest('foo','bar');   
+     //Actions.tab2_2
   }
 
   
 
-  
+  onChange(value) {
+    console.log(value)
+    this.setState(value);
+  }
+
+  onPress() {
+    var value = this.refs.form.getValue();
+    if (value) {
+      console.log(value);
+    }
+  }
+
+  onLoginButtonPressed(loginType) {
+    
+  }
+ 
 
   render() {
+   // if ( this.props.auth && !this.props.auth.isAuthorized ) 
+    //  Actions.tab2_2
+    //onPress={Actions.tab2_2({auth:{username:'foo',password:'bar'}})}
+       let password = {
+      label: null,
+      minLength:5,
+      maxLength: 12,
+      secureTextEntry: !this.state.value.showPassword,
+      hasError:this.state.value.password !=null && this.state.value.password.length>=1 &&  this.state.value.password.length<5,
+      error:'Password should be minimum 5 characters'
+}
+       let username = {
+      label: null,
+      maxLength: 12
+       }
+let options = {
+      auto: 'placeholders',
+      fields: {
+        
+      }
+    };
+options.fields['password'] = password;
+options.fields['user'] = username;
+options.fields['user'].autoCapitalize = 'none';
+ 
+ let Form = t.form.Form;
+      let Person = t.struct({
+        user:t.String,              // a required string
+        password: t.String
+       ,showPassword: t.Boolean        // a boolean              
+      });
     return (
+     
+      <Image style={styles.backgroundImage} source={require('../../images/blknyc.jpg')}>
       <View style={styles.container}>   
+         <View style={styles.inputs}>
+        <Form
+          ref="form"
+          type={Person}
+          options={options}
+          value={this.state.value}
+          onChange={(value)=>this.setState({value}) }
+        />
+        </View>
       <Button
-        style={{padding:10, height:45, width:160, overflow:'hidden', borderRadius:4, backgroundColor: '#0079cd'}}
-        textStyle={{fontSize: 20, color: 'white'}} onPress={()=>this.props.actions.loginRequest('foo','bar')}>
-        Press me!
-      </Button>     
+        style={styles.button}
+        textStyle={styles.buttonText} onPress={()=>Actions.tabbar({authLoginPage:{username:this.state.value.user, password:this.state.value.password}})} >
+        Login Cloud9 Fake API
+      </Button>   
+        
+        
+                
       </View>
+      </Image>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    alignSelf: 'stretch',
+      width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
   container: {
-    backgroundColor: '#F5FCFF',
-    flex: 1,
-    paddingTop: 20
-  },
-  autocompleteContainer: {
-    flex: 1,
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: 20
-  },
-  itemText: {
-    fontSize: 15,
-    margin: 2
-  },
-  info: {
-    paddingTop: 60,
-    flex: 4
-  },
-  infoText: {
-    textAlign: 'center'
-  },
-  titleText: {
-    fontSize: 18,
-    fontWeight: '500',
-    marginBottom: 10,
-    marginTop: 10,
-    textAlign: 'center'
-  },
-  directorText: {
-    color: 'grey',
-    fontSize: 12,
-    marginBottom: 10,
-    textAlign: 'center'
-  },
+    marginTop: 50,
+    padding: 10,
+    backgroundColor: 'transparent',
+  },  
   openingText: {
     textAlign: 'center'
+  },
+  inputs: {
+    marginTop: 10,
+    width:340,
+    marginBottom: 10,
+    marginLeft: 30,
+    padding:20,
+    marginRight: 30,
+    backgroundColor: 'white'
+  },  buttonText: {
+    fontSize: 18,
+    color: 'white',
+    alignSelf: 'center'
+  },
+  button: {
+    height: 36,
+    backgroundColor: '#48BBEC',
+    borderColor: '#48BBEC',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,    
+    alignSelf: 'stretch',
+    justifyContent: 'center'
   }
 });
 function mapStateToProps(state) {
-  let stateProp = state? state.toJS().auth :{};
-  return {
-    auth:stateProp
-  };
+  return state;
 }
 function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(AppActions, dispatch) }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+    
+
+
+//export default connect(mapStateToProps ,mapDispatchToProps)(Login);

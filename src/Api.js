@@ -23,12 +23,12 @@ export const AuthApi={
     .catch( (error)=>'Error while validating password ' + error )
    },
   
- getCache: (maxtimestamp,user,pass)=>{ 
+ getCache: (maxtimestamp,token)=>{ 
    //let header= {'headers': {'Authorization': }}
-   return fetch(`${API}/api/v1/Person/basicchanges?ts=${maxtimestamp}`,getHeader(user,pass))
+   return fetch(`${API}/api/v1/Person/basicchanges?ts=${maxtimestamp}`,getHeader(token))
     .then(res => res.json() )
-    .then(json => { return json})
-    .catch( (error)=>'Error while fetching Cache' )
+    .then(json => { console.log('Wow success') ;return json})
+    .catch( (error)=>'Error while fetching Cache ' )
    }
 ,
  getCredentials: () => {  
@@ -43,10 +43,15 @@ export const AuthApi={
 }
 ,setCredentials: (user,pass) => {
    Keychain.setInternetCredentials(MYBLKSERVER,user,pass)
-  .then(function(credentials) {
-    console.log('Credentials successfully saved for user ' + credentials.username);
-     return { user:credentials.username,pass:credentials.password};
+  .then( () =>{
+    console.log('Credentials successfully saved for user ' + user);
+     return { result:'Success'};
   })
+  .catch ( (error) => 
+          {console.log(error) 
+           return 'Error while setting Credentials ' + error;
+          
+                      })
 }
   
 }
