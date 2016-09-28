@@ -18,7 +18,7 @@
     "react-native-vector-icons": "^2.1.0",
     "redux": "^3.5.2",
     "redux-act": "0.5.0",
-    "redux-loop": "^2.2.2",
+    "redux-saga": "^0.11.1",
     "redux-react": "^4.4.5",
     "tcomb-form-native": "^0.5.3"
   }
