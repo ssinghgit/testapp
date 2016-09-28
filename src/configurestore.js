@@ -5,6 +5,8 @@ import AppReducer from './reducers'
 import {AppActions} from './actions'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
+import {AuthApi } from './Api'
+import Keychain from 'react-native-keychain'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -25,19 +27,67 @@ if (typeof atob === 'undefined') {
 const initialState = 
   { scene:{}
     ,search: { 
-        loading:false,
+        loading:true,
         films:null,
-        searchText:null,        
+        searchText:null,  
+        loadMessage:null,
+        realtime:false
         },
     auth:{
-      username:null,
-      password:null,
-      isAuthorized:false,
-      base64Token:null
+      username:'foo',
+      password:'foobar',
+      isAuthorized:false,                                                                                          
+      base64Token:null,
+      error:null
     }
     
   }
 ;
-export  const store = createStore(AppReducer,initialState,applyMiddleware(sagaMiddleware))
-sagaMiddleware.run(rootSaga)
-//install())
+let storeStatus = false
+async function getCred() {
+  return Keychain.getInternetCredentials(MYBLKSERVER) 
+  .then(function(credentials) {
+    return credentials
+  })
+}
+
+export  function getPlainStore() { 
+  storeStatus=true
+  let store=startStore();
+  return store
+  }
+export  function getStore(oncomplete) { 
+  let store=null
+  //let credentials = await getCred()
+   /*initialState.auth = { username:credentials.username,
+                          password:credentials.password,isAuthorized:true,
+                        base64Token:btoa(credentials.username+":"+credentials.password)}
+   */
+   //return startStore()
+  
+AuthApi.getCredentials()
+  .then(function(credentials) {
+    console.log('Credentials successfully loaded for user ' + credentials.username);
+     initialState.auth = { username:credentials.username,
+                          password:credentials.password,isAuthorized:false,
+                        base64Token:btoa(credentials.username+":"+credentials.password)}
+     storeStatus= true
+     let store = startStore()
+      oncomplete(store)                
+  })
+  .catch(  error =>   {storeStatus= true
+   let store = startStore()
+      oncomplete(store) 
+                      }  )
+  
+  //return startStore()      
+  
+}
+
+ function startStore(){
+   if ( ! storeStatus) 
+      return null
+   store = createStore(AppReducer,initialState,applyMiddleware(sagaMiddleware))
+   sagaMiddleware.run(rootSaga)
+   return store
+}//install())

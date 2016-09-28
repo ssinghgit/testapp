@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
   Image,
+  ActivityIndicatorIOS,
 } from 'react-native'
 
 const API = 'http://swapi.co/api';
@@ -16,18 +17,12 @@ const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
 
 class App extends Component {
   constructor(props) {
-    console.log(props)
+//    console.log(props)
     super(props);    
   }
 
   componentDidMount() {        
-    if ( this.props.auth.username == null  )
-    this.props.actions.loginRequest(this.props.authLoginPage.username,this.props.authLoginPage.password);
-    //this.props.actions.requestCache();
-    /*fetch(`${API}/films/`).then(res => res.json()).then(json => {    
-      const { results: films } = json;        
-      this.setState({ films });           
-    }); */
+    this.props.actions.requestCache()
   }
 
   _findFilm(query) {
@@ -59,32 +54,27 @@ class App extends Component {
       </View>
     );
   }
+  _renderActivity() {
+    if ( this.props.search.loading)
+      return (
+        <ActivityIndicatorIOS
+          style={[styles.centering, styles.gray]}
+         animating={true}
+          size="large"
+          color="red"
+        />    
+        )
+  }
 
   render() {
-    let  query  = this.props.search.searchText;
-    const films = this._findFilm(query);
-    const comp = (s, s2) => s.toLowerCase().trim() === s2.toLowerCase().trim();
+    
+    
     return (
       <View style={styles.container}>
-        {this._renderFilm(films)}
-        <Autocomplete
-          autoCapitalize="none"
-          autoCorrect={false}
-          containerStyle={styles.autocompleteContainer}
-          data={films.length === 1 && comp(query, films[0].title) ? [] : films}
-          defaultValue={this.props.search.searchText}
-          onChangeText={text => this.props.actions.changeSearchText(text)}
-          placeholder="Search Here"
-          renderItem={({ title, release_date }) => (
-            <TouchableOpacity onPress={() => this.setState({ query: title })}>
-              <Text style={styles.itemText}>
-                {title} ({release_date.split('-')[0]})
-              </Text>  
-            </TouchableOpacity>
-          )}
-        />
+        {this._renderActivity()}
+       
       </View>
-    );
+    )
   }
 }
 
@@ -92,7 +82,15 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F5FCFF',
     flex: 1,
-    paddingTop: 20
+    paddingTop: 60
+  },
+  centering: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+  },
+  gray: {
+    backgroundColor: '#cccccc',
   },
   autocompleteContainer: {
     flex: 1,

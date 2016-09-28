@@ -18,34 +18,36 @@ import t from 'tcomb-form-native';
 const API = 'http://swapi.co/api';
 const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
 
-export default class Login extends Component {
-  state={value: {
-        user: 'foo',
-        password: 'foobar',
-        showPassword:true
-      }};
+ class Login extends Component {
+  
   constructor(props) {
     super(props);        
+    
+    
   }
 
-  componentDidMount() {        
-    //this.props.actions.loginRequest('foo','bar');   
-     //Actions.tab2_2
+  componentWillMount() {        
+    //Reusing the loginRequest action type to see if Keychain already has stored credentials
+    this.props.actions.loginRequest({}) 
   }
 
+   componentWillReceiveProps(nextProps) {      
+      if (nextProps.auth.isAuthorized)
+        Actions.tabbar()
+   }
   
 
   onChange(value) {
-    console.log(value)
-    this.setState(value);
+    
+    this.props.auth.username=value.username
+    this.props.auth.password=value.password
+  this.props.auth.showPassword= value.showPassword    
   }
 
-  onPress() {
-    var value = this.refs.form.getValue();
-    if (value) {
-      console.log(value);
-    }
-  }
+   onPress() {
+       this.props.actions.loginRequest(this.props.auth)    
+   }
+
 
   onLoginButtonPressed(loginType) {
     
@@ -53,16 +55,15 @@ export default class Login extends Component {
  
 
   render() {
-   // if ( this.props.auth && !this.props.auth.isAuthorized ) 
-    //  Actions.tab2_2
-    //onPress={Actions.tab2_2({auth:{username:'foo',password:'bar'}})}
+   
        let password = {
       label: null,
       minLength:5,
       maxLength: 12,
-      secureTextEntry: !this.state.value.showPassword,
-      hasError:this.state.value.password !=null && this.state.value.password.length>=1 &&  this.state.value.password.length<5,
-      error:'Password should be minimum 5 characters'
+      secureTextEntry: !this.props.auth.showPassword,
+      autoCapitalize:'none',   
+      hasError:this.props.auth.error != null,
+      error:this.props.auth.error
 }
        let username = {
       label: null,
@@ -75,12 +76,14 @@ let options = {
       }
     };
 options.fields['password'] = password;
-options.fields['user'] = username;
-options.fields['user'].autoCapitalize = 'none';
+//options.fields['password'].autoCapitalize = 'none';    
+options.fields['username'] = username;
+options.fields['username'].autoCapitalize = 'none';
+
  
  let Form = t.form.Form;
       let Person = t.struct({
-        user:t.String,              // a required string
+        username:t.String,              // a required string
         password: t.String
        ,showPassword: t.Boolean        // a boolean              
       });
@@ -93,14 +96,14 @@ options.fields['user'].autoCapitalize = 'none';
           ref="form"
           type={Person}
           options={options}
-          value={this.state.value}
-          onChange={(value)=>this.setState({value}) }
+          value={this.props.auth}
+          onChange={(value)=>this.onChange(value) }
         />
         </View>
       <Button
         style={styles.button}
-        textStyle={styles.buttonText} onPress={()=>Actions.tabbar({authLoginPage:{username:this.state.value.user, password:this.state.value.password}})} >
-        Login Cloud9 Fake API
+        textStyle={styles.buttonText} onPress={()=>  this.onPress()  }>
+        Login
       </Button>   
         
         
@@ -154,7 +157,9 @@ const styles = StyleSheet.create({
   }
 });
 function mapStateToProps(state) {
-  return state;
+  let prop = {auth: state.auth};
+  prop.auth.showPassword=true
+  return prop
 }
 function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(AppActions, dispatch) }
@@ -163,4 +168,4 @@ function mapDispatchToProps(dispatch) {
     
 
 
-//export default connect(mapStateToProps ,mapDispatchToProps)(Login);
+export default connect(mapStateToProps ,mapDispatchToProps)(Login);

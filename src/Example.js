@@ -4,14 +4,15 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity
 } from 'react-native';
-import {store} from './configurestore'
+import {getStore,getPlainStore} from './configurestore'
 import App from './containers/App'
 import Login from './containers/Login'
 import NavigationDrawer from './containers/NavigationDrawer'
 import TabView from './containers/TabView'
 import TabIcon from './containers/TabIcon'
-
+import Icon from 'react-native-vector-icons/FontAwesome'
 import {
   Scene,
   Reducer,
@@ -22,7 +23,7 @@ import {
   ActionConst
 } from 'react-native-router-flux';
 
-const RouterWithRedux = connect()(Router);
+const RouterWithRedux = (Router);
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: 'transparent', justifyContent: 'center',
     alignItems: 'center',
@@ -34,46 +35,69 @@ const styles = StyleSheet.create({
     backgroundColor: '#003768',
   },
 });
- class AutocompleteExample extends Component {
-  
+class AutocompleteExample extends Component {
+ constructor() {
+    super();
+    
+  }
 
-
+  onPress() {
+    console.log(Actions)
+     Actions.ProfileView();
+  }
   render() {
+    //if (this.state.isLoading) {
+      //return null;
+    //
     //console.log(store.getState())
     //Actions.tab2_2
-                
+    /*
+    this.state= {
+      isLoading: true,
+      store: null
+    }
+    getStore(
+        (store1) => {          
+          this.state.store=store1
+          this.state.isLoading=false
+         //this.setState({isLoading: false,store:store1})
+         }
+      )       
+      */
+    let plainStore=getPlainStore();
    return(
-     <Provider store={store}>
+     <Provider store={plainStore}>
        <RouterWithRedux>
-          <Scene key="root" hideNavBar hideTabBar  >
-            
-                  
+          <Scene key="root" hideNavBar hideTabBar  >                              
             <Scene key="login" direction="vertical" hideNavBar hideTabBar>
               <Scene key="loginModal" initial hideNavBar component={Login} schema="modal" title="Login"/>
             </Scene> 
                             
-            <Scene key="tabbar">
+            <Scene key="tabbar" >
               <Scene
                 key="main"
-                tabs
-               
+                tabs               
                 tabBarStyle={styles.tabBarStyle}
                 tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
               >
                 <Scene
                   key="tab1"
                   title="People"
-                  iconType="users"
+                  iconType="home"
                   icon={TabIcon}                  
                   titleStyle={{ color: 'white' }}
                 >
                   <Scene
                     key="peopleSearch"
-                    component={App}
-                    hideNavBar
-                    title="Search By Name"
-                    onRight={() => alert('Right button')}
-                    rightTitle="Right"
+                    component={App}                    
+                    title="Home"
+                    //onRight={() => this.onPress()}                    
+                    navigationBarStyle={{ backgroundColor: '#003768' }}  
+                    rightTitle="Search"
+                    renderRightButton={() => (<TouchableOpacity onPress={this.onPress}>
+                          <Icon name="search" size={20} color="white" />
+                        </TouchableOpacity>)
+                     }
                   />
                   <Scene
                     key="ProfileView"
@@ -84,18 +108,20 @@ const styles = StyleSheet.create({
                 <Scene key="tab2" iconType="search"  title="Search" icon={TabIcon}>
                   <Scene
                     key="tab2_1"
-                    component={Login}                    
+                    component={TabView}                    
                     title="Search"
-                    hideNavBar
+                    type={ActionConst.REPLACE}
+                    navigationBarStyle={{ backgroundColor: '#003768' }}  
+                      titleStyle={{color:'white'}}
+                    backTitle="Back"
                     renderRightButton={() => <Text>Right</Text>}
                   />
                   <Scene
                     key="tab2_2"
                     component={TabView}
-                    title="Tab #2_2"
-                    hideBackImage
+                    title="Tab #2_2"                    
                     onBack={() => alert('Left button!')}
-                    backTitle="Left"
+                    
                     duration={1}
                     panHandlers={null}
                   />
@@ -118,11 +144,5 @@ const styles = StyleSheet.create({
  }
    
 }
-const reducerCreate = params=>{
-    const defaultReducer = Reducer(params);
-    return (state, action)=>{
-        console.log("ACTION:", action);
-        return defaultReducer(state, action);
-    }
-};
+
 export default AutocompleteExample;
