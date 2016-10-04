@@ -1,5 +1,5 @@
 {
-  "name": "myblkapp",
+  "name": "SampleApp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,14 +12,15 @@
     "react": "15.0.2",
     "react-native": "^0.26.3",
     "react-native-autocomplete-input": "^2.0.0-rc.0",
+    "react-native-drawer": "^2.3.0",
     "react-native-keychain": "^0.3.2",
     "react-native-router-flux": "^3.35.0",
-    "react-native-sqlite-storage": "^3.1.2",
     "react-native-vector-icons": "^2.1.0",
+    "react-redux": "^4.4.5",
+    "realm": "^0.14.3",
     "redux": "^3.5.2",
     "redux-act": "0.5.0",
     "redux-saga": "^0.11.1",
-    "redux-react": "^4.4.5",
     "tcomb-form-native": "^0.5.3"
   }
 }
