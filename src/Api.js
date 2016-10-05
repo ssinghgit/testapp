@@ -2,26 +2,51 @@ import {AppActions} from './actions'
 //import Buffer from 'Buffer'
 import {AsyncStorage} from 'react-native'
 import Keychain from 'react-native-keychain'
+//noderestapp-ssinghgit.c9users.io
 const API = 'https://noderestapp-ssinghgit.c9users.io/myblackrock'
 const MYBLKSERVER='www.myblackrockdummyserver.com'
 const MYBLKKEY="@MYBLKKEY:key"
 
+/*const oldfetch = fetch;
+fetch = function(input, opts) {
+    return new Promise((resolve, reject) => {
+        setTimeout(reject, opts.deadline);
+        oldfetch(input, opts).then(resolve, reject);
+    });
+}
+*/
 function getHeader(token){
   //let token=new Buffer(`${user}:${pass}` ).toString('base64')
   return {headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
     'Authorization': 'Basic ' + token
-  }}
+  },deadline:10000}
 }
 export const AuthApi={
   
   whoami: (token)=>{ 
    let header=getHeader(token)   
-   return fetch(`${API}/services/search/whoami`,header)
-    .then(res => res.text() )
-    .then(json => { return json})
-    .catch( (error)=>'Error while validating password ' + error )
+   let url = `${API}/services/search/whoami`
+   return fetch(url,header)
+    .then(  
+     response => {  
+      if (response.status !== 200) {  
+        console.log('Looks like there was a problem. Status Code: ' +  response.status);  
+        return "Error:Invalid User or Password";  
+      }
+      // Examine the text in the response  
+     return response.json().then(data => {  
+        console.log(data);  
+        return JSON.stringify(data)
+      });  
+    }  
+  )  
+  .catch( (err)=> {  
+    console.log('Fetch Error :-S', err);  
+    return "Error:" + err.message
+  })
+    
    },
   
  getCache: (maxtimestamp,token)=>{ 

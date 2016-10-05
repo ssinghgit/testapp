@@ -28,11 +28,15 @@ export function* handleLogin() {
    if ( loginDetails.base64Token != null ) {
      try { 
       loginResult= yield call (AuthApi.whoami,loginDetails.base64Token)
-       console.log(loginDetails)   
+       console.log(loginResult)   
       if ( loginResult != null && loginResult.indexOf('Success') !=-1) {
           const keyChainSetResult=  yield call( AuthApi.setCredentials, loginDetails.username,loginDetails.password)          
           if ( keyChainSetResult.result =='Success')
             yield put ({type:'LOGIN_SUCCESS',payload:{username:loginDetails.username ,password:loginDetails.password}})     
+      }else {
+        let err=loginResult.replace("Error:")
+        yield put ({type:'LOGIN_ERROR',payload: err})
+        return
       }
      }catch (error ) {
        yield put ({type:'LOGIN_ERROR',payload:'Invalid user ID or password'})

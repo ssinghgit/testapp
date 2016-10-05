@@ -6,5 +6,6 @@ export  const AppActions = {
    throwAwayAction:createAction('NO_OP'),
    changeSearchText:createAction('PEOPLE_SEARCH_CHANGED'),
    loginError:createAction('LOGIN_ERROR'),
-   loginRequest:createAction('LOGIN_REQUEST' )    
+   loginRequest:createAction('LOGIN_REQUEST' )  , 
+   loginShowPassword:createAction('LOGIN_SHOWPASS')
 };

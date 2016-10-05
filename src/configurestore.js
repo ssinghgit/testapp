@@ -1,6 +1,5 @@
 import { fromJS } from 'immutable';
 import { createStore ,applyMiddleware} from 'redux';
-import { Effects, loop, install } from 'redux-loop';
 import AppReducer from './reducers'
 import {AppActions} from './actions'
 import createSagaMiddleware from 'redux-saga'
@@ -38,7 +37,9 @@ const initialState =
       password:'foobar',
       isAuthorized:false,                                                                                          
       base64Token:null,
-      error:null
+      error:null,
+      showPassword:true,
+      isAuthorizing:false
     }
     
   }

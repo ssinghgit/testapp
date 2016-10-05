@@ -16,18 +16,26 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         scene: action.scene,
-      }             
+      }       
+      case 'LOGIN_SHOWPASS':
+         return { ...state,
+                  auth:{
+                  ...state.auth,
+                 showPassword: !state.auth.showPassword
+                }}
         case 'LOGIN_REQUEST':
           let token=null
           if ( action.payload.username && action.payload.username != null ) 
             token=btoa(`${action.payload.username}:${action.payload.password}` )//.toString('base64')
           return { ...state,
                   auth:{
+                  ...state.auth,
                     username:action.payload.username,
                     password:action.payload.password,
                     isAuthorized:false,
                     base64Token:token,
-                    error:null
+                    error:null,
+                    isAuthorizing:true
                   }
                 }
          case 'LOGIN_ERROR':          
@@ -36,19 +44,20 @@ export default function appReducer(state = initialState, action) {
                     password:null,
                     isAuthorized:false,
                     base64Token:null,
-                    error:action.payload
+                    error:action.payload,
+                    isAuthorizing:false     
                   } }
-        console.log(newState)
+        
         return newState
         case 'LOGIN_SUCCESS':
          token=btoa(`${action.payload.username}:${action.payload.password}` )       
          return { ...state,
                   auth:{
-                    username:action.payload.username,
-                    password:action.payload.password,
+                    ...state.auth,
                     isAuthorized:true,
                     base64Token:token,
-                    error:null
+                    error:null,
+                   isAuthorizing:false
                   }
                 }
         case 'CACHE_REQUEST_SUCCESS':            

@@ -424,7 +424,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 256Q4E543B;
+						DevelopmentTeam = 9GK498L7YH;
 					};
 				};
 			};
@@ -721,6 +721,7 @@
 					"-lc++",
 					"-v",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.blackrock.aladdin.SampleApp;
 				PRODUCT_NAME = myblkapp;
 				PROVISIONING_PROFILE = "";
 			};
@@ -745,6 +746,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.blackrock.aladdin.SampleApp;
 				PRODUCT_NAME = myblkapp;
 				PROVISIONING_PROFILE = "";
 			};

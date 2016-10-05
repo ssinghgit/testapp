@@ -37,11 +37,13 @@ const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
    }
   
 
-  onChange(value) {
-    
+  onChange(value) {    
     this.props.auth.username=value.username
     this.props.auth.password=value.password
-  this.props.auth.showPassword= value.showPassword    
+    if (this.props.auth.showPassword !=value.showPassword  ) {
+      this.props.actions.loginShowPassword()
+    }
+     
   }
 
    onPress() {
@@ -80,7 +82,16 @@ options.fields['password'] = password;
 options.fields['username'] = username;
 options.fields['username'].autoCapitalize = 'none';
 
- 
+let submitComponent = null;
+ if ( this.props.auth.isAuthorizing )
+      submitComponent=<Text></Text>
+ else 
+      submitComponent=(<Button
+        style={styles.button}
+        textStyle={styles.buttonText} onPress={()=>  this.onPress()  }>
+        Login
+      </Button> )
+      
  let Form = t.form.Form;
       let Person = t.struct({
         username:t.String,              // a required string
@@ -88,7 +99,7 @@ options.fields['username'].autoCapitalize = 'none';
        ,showPassword: t.Boolean        // a boolean              
       });
     return (
-     
+      
       <Image style={styles.backgroundImage} source={require('../../images/blknyc.jpg')}>
       <View style={styles.container}>   
          <View style={styles.inputs}>
@@ -100,11 +111,7 @@ options.fields['username'].autoCapitalize = 'none';
           onChange={(value)=>this.onChange(value) }
         />
         </View>
-      <Button
-        style={styles.button}
-        textStyle={styles.buttonText} onPress={()=>  this.onPress()  }>
-        Login
-      </Button>   
+      {submitComponent} 
         
         
                 
@@ -158,7 +165,7 @@ const styles = StyleSheet.create({
 });
 function mapStateToProps(state) {
   let prop = {auth: state.auth};
-  prop.auth.showPassword=true
+  //prop.auth.showPassword=false
   return prop
 }
 function mapDispatchToProps(dispatch) {

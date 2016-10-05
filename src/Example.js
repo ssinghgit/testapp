@@ -12,6 +12,7 @@ import Login from './containers/Login'
 import NavigationDrawer from './containers/NavigationDrawer'
 import TabView from './containers/TabView'
 import TabIcon from './containers/TabIcon'
+import Settings from './containers/Settings'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import {
   Scene,
@@ -132,7 +133,7 @@ class AutocompleteExample extends Component {
                       titleStyle={{color:'white'}} />
                 <Scene key="tab4" iconType="life-saver" component={TabView} title="Apps"  icon={TabIcon}   navigationBarStyle={{ backgroundColor: '#003768' }}  
                       titleStyle={{color:'white'}}/>
-                <Scene key="tab5" iconType="cog"  component={TabView} title="Settings"  icon={TabIcon}  navigationBarStyle={{ backgroundColor: '#003768' }}  
+                <Scene key="tab5" iconType="cog"  component={Settings} title="Settings"  icon={TabIcon}  navigationBarStyle={{ backgroundColor: '#003768' }}  
                       titleStyle={{color:'white'}} />
               </Scene>
             </Scene>
