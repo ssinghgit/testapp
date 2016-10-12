@@ -1,4 +1,17 @@
+import React from 'react';
 import { requireNativeComponent } from 'react-native';
 
-// requireNativeComponent automatically resolves this to "RCTMapManager"
-module.exports = requireNativeComponent('RCTMap', null);
+class MapView extends React.Component {
+  render() {
+    
+    return <RCTMap2 {...this.props} />;
+  }
+}
+
+MapView.propTypes = {
+  pitchEnabled: React.PropTypes.bool,
+};
+
+var RCTMap2 = requireNativeComponent('RCTMap2', MapView);
+
+module.exports = MapView;

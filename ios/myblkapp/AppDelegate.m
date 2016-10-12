@@ -51,7 +51,9 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
+  
   self.window.rootViewController = rootViewController;
+  self.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
 }

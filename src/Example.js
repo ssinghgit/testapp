@@ -5,6 +5,7 @@ import {
   Text,
   View,
   TouchableOpacity
+  ,requireNativeComponent
 } from 'react-native';
 import {getStore,getPlainStore} from './configurestore'
 import App from './containers/App'
@@ -23,7 +24,7 @@ import {
   Actions,
   ActionConst
 } from 'react-native-router-flux';
-
+import MapView from './containers/MapView'
 const RouterWithRedux = (Router);
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: 'transparent', justifyContent: 'center',
@@ -43,7 +44,7 @@ class AutocompleteExample extends Component {
   }
 
   onPress() {
-    console.log(Actions)
+    //console.log(Actions)
      Actions.ProfileView();
   }
   render() {
@@ -66,12 +67,14 @@ class AutocompleteExample extends Component {
       )       
       */
     let plainStore=getPlainStore();
+    //let mapComponent= <MapView pitchEnabled={false} />
    return(
+     
      <Provider store={plainStore}>
        <RouterWithRedux>
           <Scene key="root" hideNavBar hideTabBar  >                              
             <Scene key="login" direction="vertical" hideNavBar hideTabBar>
-              <Scene key="loginModal" initial hideNavBar component={Login} schema="modal" title="Login"/>
+              <Scene key="loginModal"  hideNavBar component={Login} schema="modal" title="Login"/>
             </Scene> 
                             
             <Scene key="tabbar" >
@@ -81,6 +84,10 @@ class AutocompleteExample extends Component {
                 tabBarStyle={styles.tabBarStyle}
                 tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
               >
+                  <Scene key="tab3" iconType="calendar"  initial navigationBarStyle={{ backgroundColor: '#003768' }}  
+                      titleStyle={{color:'white'}}
+                    component={TabView} title="Meeting"  icon={TabIcon}  navigationBarStyle={{ backgroundColor: '#003768' }}  
+                      titleStyle={{color:'white'}} />
                 <Scene
                   key="tab1"
                   title="People"
@@ -127,10 +134,7 @@ class AutocompleteExample extends Component {
                     panHandlers={null}
                   />
                 </Scene>
-                  <Scene key="tab3" iconType="calendar"   navigationBarStyle={{ backgroundColor: '#003768' }}  
-                      titleStyle={{color:'white'}}
-                    component={TabView} title="Meeting"  icon={TabIcon}  navigationBarStyle={{ backgroundColor: '#003768' }}  
-                      titleStyle={{color:'white'}} />
+                
                 <Scene key="tab4" iconType="life-saver" component={TabView} title="Apps"  icon={TabIcon}   navigationBarStyle={{ backgroundColor: '#003768' }}  
                       titleStyle={{color:'white'}}/>
                 <Scene key="tab5" iconType="cog"  component={Settings} title="Settings"  icon={TabIcon}  navigationBarStyle={{ backgroundColor: '#003768' }}  

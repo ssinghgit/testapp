@@ -1,0 +1,4 @@
+target 'myblkapp' do
+  use_frameworks!
+  pod 'TapkuLibrary', '~> 0.4'
+end

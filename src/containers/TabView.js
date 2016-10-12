@@ -1,6 +1,6 @@
 import React from 'react';
 import {PropTypes} from "react";
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, View,requireNativeComponent,Dimensions} from "react-native";
 import Button from 'apsl-react-native-button';
 import { Actions } from 'react-native-router-flux';
 import App from './App'
@@ -26,21 +26,25 @@ const styles = StyleSheet.create({
   },
 });
 
+
 const TabView = (props, context) => {
+  this.propTypes = {
+  pitchEnabled: React.PropTypes.bool,
+};
   const drawer = context.drawer;
-  return (
-    <View style={[styles.container, props.sceneStyle ]}>
-      <Text>Tab {props.title}</Text>
-      {props.name === 'tab1_1' &&
-        <Button onPress={Actions.tab1_2}>next screen for tab1_1</Button>
-      }
-      {props.name === 'tab2_1' &&
-        <Button onPress={Actions.tab2_2}>Profile View </Button>
-      }
-      <Button onPress={Actions.pop}>Back</Button>
+  let RCTMap2 = requireNativeComponent('RCTMap2',this)
   
+  let {height, width} = Dimensions.get('window');
+  return (
+    <View style={styles.container}>
+        <Text>
+          Red one
+        </Text>
+    <RCTMap2 style={{width: width, justifyContent:'flex-start', height: (height),paddingTop:0}} pitchEnabled={false} />
     </View>
-  );
+    );
+    
+  
 };
 
 TabView.contextTypes = contextTypes;

@@ -3,16 +3,24 @@
 
 #import "RCTViewManager.h"
 
-@interface RCTMapManager : RCTViewManager
+#import "MyCustomView.h"
+
+@interface RCTMap2Manager : RCTViewManager
 @end
 
-@implementation RCTMapManager
+@implementation RCTMap2Manager
 
 RCT_EXPORT_MODULE()
+RCT_EXPORT_VIEW_PROPERTY(pitchEnabled, BOOL)
+RCT_EXPORT_VIEW_PROPERTY(floorX, NSNumber)
 
 - (UIView *)view
 {
-  return [[MKMapView alloc] init];
+  MyCustomView * theView;
+  theView = [[MyCustomView alloc] init];
+  return theView;
+  
+   //return [[MKMapView alloc] init];
 }
 
 @end

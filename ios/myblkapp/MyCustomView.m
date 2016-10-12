@@ -18,4 +18,22 @@
 }
 */
 
+{
+  UIColor *squareColor;
+}
+
+- (void)setPitchEnabled:(BOOL)pitchEnabled
+{
+  squareColor= (pitchEnabled)  ? [UIColor redColor] : [UIColor greenColor];
+  [self setNeedsDisplay];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+  [squareColor setFill];
+  CGContextFillRect(UIGraphicsGetCurrentContext(), rect); 
+}
+
+
+
 @end

@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
   Image,
-  ActivityIndicatorIOS,
+  ActivityIndicator,
 } from 'react-native'
 
 const API = 'http://swapi.co/api';
@@ -57,7 +57,7 @@ class App extends Component {
   _renderActivity() {
     if ( this.props.search.loading)
       return (
-        <ActivityIndicatorIOS
+        <ActivityIndicator
           style={[styles.centering, styles.gray]}
          animating={true}
           size="large"

@@ -32,7 +32,7 @@ const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
   }
 
    componentWillReceiveProps(nextProps) {      
-      if (nextProps.auth.isAuthorized)
+     // if (nextProps.auth.isAuthorized)
         Actions.tabbar()
    }
   
@@ -83,6 +83,7 @@ options.fields['username'] = username;
 options.fields['username'].autoCapitalize = 'none';
 
 let submitComponent = null;
+    this.props.auth.isAuthorizing = false;
  if ( this.props.auth.isAuthorizing )
       submitComponent=<Text></Text>
  else 

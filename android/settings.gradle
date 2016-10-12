@@ -1,4 +1,4 @@
-rootProject.name = 'myblkapp'
+rootProject.name = 'SampleApp'
 
 include ':app'
 include ':react-native-keychain'
