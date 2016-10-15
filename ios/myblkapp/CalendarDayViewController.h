@@ -29,11 +29,14 @@
  
  */
 
-@import tapku;
+//@import tapku;
+#import "TapkuLibrary/TapkuLibrary.h"
 @import UIKit;
 
 @interface CalendarDayViewController : TKCalendarDayViewController
 
 @property (nonatomic,strong) NSArray *data;
+
+@property ( nonatomic,copy) NSString *myString;
 
 @end

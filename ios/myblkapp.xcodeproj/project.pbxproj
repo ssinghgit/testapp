@@ -13,11 +13,12 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* myblkappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* myblkappTests.m */; };
+		084BFFF11DB0180500052218 /* curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 084BFFDA1DAFFF5800052218 /* curry.framework */; };
 		0850074D1DADA69B0072140B /* RCTMapManager2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0850074C1DADA69B0072140B /* RCTMapManager2.m */; };
 		085007501DADBD510072140B /* MyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0850074F1DADBD510072140B /* MyCustomView.m */; };
 		0879E7C61D7A356A002D0433 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0879E7C51D7A356A002D0433 /* MaterialIcons.ttf */; };
 		0879E7D31D7A358B002D0433 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0879E7D21D7A358B002D0433 /* FontAwesome.ttf */; };
-		08FE1DBE1DADEF8000A5C7A1 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08FE1DBD1DADEF8000A5C7A1 /* TapkuLibrary.bundle */; };
+		0897A6D31DAF041600EFE27A /* CalendarDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0897A6D21DAF041600EFE27A /* CalendarDayViewController.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -26,6 +27,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		75FA0D457C793BE528A6ADBD /* libPods-myblkapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F30B86353F85B0811CD831 /* libPods-myblkapp.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		87E4AB841DF74ADF9CE0B012 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 616B02D5D32C465B9ABCC3D0 /* libsqlite3.0.tbd */; };
 		9F572F1B74EF4C87AA1BD40E /* libSQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A92888DDBF549CEBBCC907A /* libSQLite.a */; };
@@ -75,6 +77,48 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = myblkapp;
 		};
+		084BFFD91DAFFF5800052218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 084BFFD01DAFFF5800052218 /* curry.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 200B62551AD7FB460049E35C;
+			remoteInfo = curry;
+		};
+		084BFFDB1DAFFF5800052218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 084BFFD01DAFFF5800052218 /* curry.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 200B62601AD7FB460049E35C;
+			remoteInfo = curryTests;
+		};
+		084BFFDD1DAFFF5800052218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 084BFFD01DAFFF5800052218 /* curry.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 20CEA42B1BA1105D0009D60C;
+			remoteInfo = curryTV;
+		};
+		084BFFDF1DAFFF5800052218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 084BFFD01DAFFF5800052218 /* curry.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2010DCB01BB0E40E00810A98;
+			remoteInfo = curryWatch;
+		};
+		084BFFE11DAFFF5800052218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 084BFFD01DAFFF5800052218 /* curry.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 20B5FE1F1BB3613F00C0F848;
+			remoteInfo = curryMac;
+		};
+		084BFFEF1DB017F600052218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 084BFFD01DAFFF5800052218 /* curry.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 200B62541AD7FB450049E35C;
+			remoteInfo = curry;
+		};
 		0879E79D1D7A085B002D0433 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66D7048939DF498D9CB62534 /* SQLite.xcodeproj */;
@@ -88,27 +132,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 5D82366F1B0CE05B005A9EF3;
 			remoteInfo = RNKeychain;
-		};
-		08FE1DCD1DADEF8100A5C7A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FE1DB91DADEF8000A5C7A1 /* tapku.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 204C73E11ABA0EA600A68988;
-			remoteInfo = tapku;
-		};
-		08FE1DCF1DADEF8100A5C7A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FE1DB91DADEF8000A5C7A1 /* tapku.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B45DDF1134C736600D24C1A;
-			remoteInfo = LogicTests;
-		};
-		08FE1DD11DADEFBA00A5C7A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FE1DB91DADEF8000A5C7A1 /* tapku.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 204C73E01ABA0EA600A68988;
-			remoteInfo = tapku;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -157,13 +180,14 @@
 		00E356EE1AD99517003FC87E /* myblkappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myblkappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* myblkappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myblkappTests.m; sourceTree = "<group>"; };
+		084BFFD01DAFFF5800052218 /* curry.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = curry.xcodeproj; path = ../../curry/curry.xcodeproj; sourceTree = "<group>"; };
 		0850074C1DADA69B0072140B /* RCTMapManager2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTMapManager2.m; path = myblkapp/RCTMapManager2.m; sourceTree = "<group>"; };
 		0850074E1DADBD510072140B /* MyCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCustomView.h; path = myblkapp/MyCustomView.h; sourceTree = "<group>"; };
 		0850074F1DADBD510072140B /* MyCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCustomView.m; path = myblkapp/MyCustomView.m; sourceTree = "<group>"; };
 		0879E7C51D7A356A002D0433 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		0879E7D21D7A358B002D0433 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		08FE1DB91DADEF8000A5C7A1 /* tapku.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = tapku.xcodeproj; path = ../../tapku/tapkulibrary/tapku.xcodeproj; sourceTree = "<group>"; };
-		08FE1DBD1DADEF8000A5C7A1 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../../tapku/tapkulibrary/TapkuLibrary.bundle; sourceTree = "<group>"; };
+		0897A6D11DAF041600EFE27A /* CalendarDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarDayViewController.h; path = myblkapp/CalendarDayViewController.h; sourceTree = "<group>"; };
+		0897A6D21DAF041600EFE27A /* CalendarDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarDayViewController.m; path = myblkapp/CalendarDayViewController.m; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* myblkapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myblkapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +204,7 @@
 		66D7048939DF498D9CB62534 /* SQLite.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../node_modules/react-native-sqlite-storage/src/ios/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7508340D42DE42CFB92C3BFD /* libRNKeychain.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNKeychain.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		81F30B86353F85B0811CD831 /* libPods-myblkapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myblkapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				084BFFF11DB0180500052218 /* curry.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -208,6 +234,7 @@
 				9F572F1B74EF4C87AA1BD40E /* libSQLite.a in Frameworks */,
 				87E4AB841DF74ADF9CE0B012 /* libsqlite3.0.tbd in Frameworks */,
 				ECA3311E11564E678C572E8D /* libRNKeychain.a in Frameworks */,
+				75FA0D457C793BE528A6ADBD /* libPods-myblkapp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +298,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		084BFFD11DAFFF5800052218 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				084BFFDA1DAFFF5800052218 /* curry.framework */,
+				084BFFDC1DAFFF5800052218 /* curryTests.xctest */,
+				084BFFDE1DAFFF5800052218 /* curryTV.framework */,
+				084BFFE01DAFFF5800052218 /* curryWatch.framework */,
+				084BFFE21DAFFF5800052218 /* curryMac.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0879E7901D7A085B002D0433 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,15 +322,6 @@
 			isa = PBXGroup;
 			children = (
 				0879E7ED1D7A8D7E002D0433 /* libRNKeychain.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		08FE1DBA1DADEF8000A5C7A1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				08FE1DCE1DADEF8100A5C7A1 /* tapku.framework */,
-				08FE1DD01DADEF8100A5C7A1 /* LogicTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -315,6 +345,8 @@
 		13B07FAE1A68108700A75B9A /* myblkapp */ = {
 			isa = PBXGroup;
 			children = (
+				0897A6D11DAF041600EFE27A /* CalendarDayViewController.h */,
+				0897A6D21DAF041600EFE27A /* CalendarDayViewController.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -341,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				616B02D5D32C465B9ABCC3D0 /* libsqlite3.0.tbd */,
+				81F30B86353F85B0811CD831 /* libPods-myblkapp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -356,6 +389,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				084BFFD01DAFFF5800052218 /* curry.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -383,8 +417,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				08FE1DB91DADEF8000A5C7A1 /* tapku.xcodeproj */,
-				08FE1DBD1DADEF8000A5C7A1 /* TapkuLibrary.bundle */,
 				0879E7D21D7A358B002D0433 /* FontAwesome.ttf */,
 				0879E7C51D7A356A002D0433 /* MaterialIcons.ttf */,
 				13B07FAE1A68108700A75B9A /* myblkapp */,
@@ -439,15 +471,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "myblkapp" */;
 			buildPhases = (
+				68A9F827A921826C0ACD68E2 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				79CDB1C0155A6DF9850F18C1 /* [CP] Embed Pods Frameworks */,
+				7107E8389CCB42106016EC1E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				08FE1DD21DADEFBA00A5C7A1 /* PBXTargetDependency */,
+				084BFFF01DB017F600052218 /* PBXTargetDependency */,
 			);
 			name = myblkapp;
 			productName = "Hello World";
@@ -484,6 +519,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 084BFFD11DAFFF5800052218 /* Products */;
+					ProjectRef = 084BFFD01DAFFF5800052218 /* curry.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -532,10 +571,6 @@
 					ProductGroup = 0879E7901D7A085B002D0433 /* Products */;
 					ProjectRef = 66D7048939DF498D9CB62534 /* SQLite.xcodeproj */;
 				},
-				{
-					ProductGroup = 08FE1DBA1DADEF8000A5C7A1 /* Products */;
-					ProjectRef = 08FE1DB91DADEF8000A5C7A1 /* tapku.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -581,6 +616,41 @@
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		084BFFDA1DAFFF5800052218 /* curry.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = curry.framework;
+			remoteRef = 084BFFD91DAFFF5800052218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		084BFFDC1DAFFF5800052218 /* curryTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = curryTests.xctest;
+			remoteRef = 084BFFDB1DAFFF5800052218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		084BFFDE1DAFFF5800052218 /* curryTV.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = curryTV.framework;
+			remoteRef = 084BFFDD1DAFFF5800052218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		084BFFE01DAFFF5800052218 /* curryWatch.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = curryWatch.framework;
+			remoteRef = 084BFFDF1DAFFF5800052218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		084BFFE21DAFFF5800052218 /* curryMac.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = curryMac.framework;
+			remoteRef = 084BFFE11DAFFF5800052218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		0879E79E1D7A085B002D0433 /* libSQLite.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -593,20 +663,6 @@
 			fileType = archive.ar;
 			path = libRNKeychain.a;
 			remoteRef = 0879E7EC1D7A8D7E002D0433 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		08FE1DCE1DADEF8100A5C7A1 /* tapku.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = tapku.framework;
-			remoteRef = 08FE1DCD1DADEF8100A5C7A1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		08FE1DD01DADEF8100A5C7A1 /* LogicTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = LogicTests.xctest;
-			remoteRef = 08FE1DCF1DADEF8100A5C7A1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		139105C11AF99BAD00B5F7CC /* libRCTSettings.a */ = {
@@ -660,7 +716,6 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				08FE1DBE1DADEF8000A5C7A1 /* TapkuLibrary.bundle in Resources */,
 				0879E7C61D7A356A002D0433 /* MaterialIcons.ttf in Resources */,
 				0879E7D31D7A358B002D0433 /* FontAwesome.ttf in Resources */,
 			);
@@ -683,6 +738,51 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
+		68A9F827A921826C0ACD68E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7107E8389CCB42106016EC1E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myblkapp/Pods-myblkapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79CDB1C0155A6DF9850F18C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myblkapp/Pods-myblkapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -702,6 +802,7 @@
 				085007501DADBD510072140B /* MyCustomView.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				0850074D1DADA69B0072140B /* RCTMapManager2.m in Sources */,
+				0897A6D31DAF041600EFE27A /* CalendarDayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,10 +814,10 @@
 			target = 13B07F861A680F5B00A75B9A /* myblkapp */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
-		08FE1DD21DADEFBA00A5C7A1 /* PBXTargetDependency */ = {
+		084BFFF01DB017F600052218 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = tapku;
-			targetProxy = 08FE1DD11DADEFBA00A5C7A1 /* PBXContainerItemProxy */;
+			name = curry;
+			targetProxy = 084BFFEF1DB017F600052218 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
